@@ -31,10 +31,26 @@ var dogList = [
       1
 		]
 	},
+	{
+    name: "Heidi",
+    photo: "https://images.unsplash.com/photo-1521907554502-7440e4702fc3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=47568e1c82503104064c9e7bd2785c06&auto=format&fit=crop&w=1234&q=80",
+    scores: [
+			3,
+      2,
+      4,
+      1,
+      8,
+      2,
+      4,
+      3,
+      3,
+      9
+		]
+	},
 ];
 
 // Note how we export the array. This makes it accessible to other files using require.
 module.exports = dogList;
 
-console.log(dogList);
-module.exports = [];
+// console.log(dogList);
+// module.exports = [];
