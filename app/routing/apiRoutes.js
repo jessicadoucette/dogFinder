@@ -1,15 +1,13 @@
+var dogs = require('../data/dogs');
+
 module.exports = function(app) {
 
 	app.get("/api/dogs", function(req, res) {
-    res.json(dogList);
+    res.json(dogs);
 	});
 	
-	app.post("/api/dogs", function(req, res) {
-
-    if (dogList.length < 5) {
-      dogList.push(req.body);
-      res.json(true);
-    }
+	app.post('/api/dogs', function(req, res) {
+		dogs.push(req.body);
     // else {
     //   waitListData.push(req.body);
     //   res.json(false);
