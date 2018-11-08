@@ -7,10 +7,24 @@ module.exports = function(app) {
 	});
 	
 	app.post('/api/dogs', function(req, res) {
-		dogs.push(req.body);
-    // else {
-    //   waitListData.push(req.body);
-    //   res.json(false);
-    // }
+		// console.log(req.body.userAnswers); 
+		// console.log(dogs); 
+		
+		var bestMatch = {};  
+		var bestMatchDifference = 100000;
+		
+
+		for (var i = 0; i < dogs.length; i++) {
+			var difference = 0;  
+			for (var j = 0; j < dogs[i].scores.length; j++) {
+				difference += Math.abs(req.body.userAnswers[j] - dogs[i].scores[j]); 
+				if (difference < bestMatchDifference) {
+					bestMatchDifference = difference;
+					bestMatch = dogs[i]; 
+					console.log(bestMatch); 
+				}
+			}
+		}
+		res.json(bestMatch); 
   });
 }; 
